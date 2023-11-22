@@ -43,6 +43,13 @@ AVLTree<ValType>::single_right_rotation(Node<ValType> *cur_node) {
   return left_child;
 }
 
+/* difference between heights have to be less than 2 to be balanced. */
+template <typename ValType>
+bool AVLTree<ValType>::is_balanced(Node<ValType> *child_1,
+                                   Node<ValType> *child_2) {
+  return (get_height(child_1) - get_height(child_2) < 2);
+}
+
 /*
 set_hegiht based on calling node's childs
 children argument
