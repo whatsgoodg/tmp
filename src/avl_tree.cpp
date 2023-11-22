@@ -31,7 +31,7 @@ template <typename ValType> AVLTree<ValType>::AVLTree() {
 
 /* root - left - left */
 /* when cur_node's left child has bigger height than right child's height and
- * newly insterted node has smaller key than left child's one */
+   inserted node has smaller key than left child's one */
 template <typename ValType>
 Node<ValType> *
 AVLTree<ValType>::single_right_rotation(Node<ValType> *cur_node) {
