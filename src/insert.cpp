@@ -55,7 +55,7 @@ Node<ValType> *AVLTree<ValType>::insert_node(Node<ValType> *cur_node,
     cur_node->right_ = insert_node(cur_node->right_, key);
     if (!is_balanced(cur_node->right_, cur_node->left_)) {
       if (cur_node->right_->key_ < key) {
-
+	cur_node = single_left_rotation(cur_node);
       } else {
       }
     }
