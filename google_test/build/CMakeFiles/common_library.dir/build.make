@@ -53,10 +53,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tmp/google_test
+CMAKE_SOURCE_DIR = /home/oss/google_test
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tmp/google_test/build
+CMAKE_BINARY_DIR = /home/oss/google_test/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/common_library.dir/depend.make
@@ -70,18 +70,18 @@ include CMakeFiles/common_library.dir/progress.make
 include CMakeFiles/common_library.dir/flags.make
 
 CMakeFiles/common_library.dir/library_code.cc.o: CMakeFiles/common_library.dir/flags.make
-CMakeFiles/common_library.dir/library_code.cc.o: /home/tmp/google_test/library_code.cc
+CMakeFiles/common_library.dir/library_code.cc.o: /home/oss/google_test/library_code.cc
 CMakeFiles/common_library.dir/library_code.cc.o: CMakeFiles/common_library.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/tmp/google_test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/common_library.dir/library_code.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/common_library.dir/library_code.cc.o -MF CMakeFiles/common_library.dir/library_code.cc.o.d -o CMakeFiles/common_library.dir/library_code.cc.o -c /home/tmp/google_test/library_code.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/oss/google_test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/common_library.dir/library_code.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/common_library.dir/library_code.cc.o -MF CMakeFiles/common_library.dir/library_code.cc.o.d -o CMakeFiles/common_library.dir/library_code.cc.o -c /home/oss/google_test/library_code.cc
 
 CMakeFiles/common_library.dir/library_code.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/common_library.dir/library_code.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tmp/google_test/library_code.cc > CMakeFiles/common_library.dir/library_code.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/oss/google_test/library_code.cc > CMakeFiles/common_library.dir/library_code.cc.i
 
 CMakeFiles/common_library.dir/library_code.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/common_library.dir/library_code.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tmp/google_test/library_code.cc -o CMakeFiles/common_library.dir/library_code.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/oss/google_test/library_code.cc -o CMakeFiles/common_library.dir/library_code.cc.s
 
 # Object files for target common_library
 common_library_OBJECTS = \
@@ -93,7 +93,7 @@ common_library_EXTERNAL_OBJECTS =
 libcommon_library.a: CMakeFiles/common_library.dir/library_code.cc.o
 libcommon_library.a: CMakeFiles/common_library.dir/build.make
 libcommon_library.a: CMakeFiles/common_library.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/tmp/google_test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libcommon_library.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/oss/google_test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libcommon_library.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/common_library.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/common_library.dir/link.txt --verbose=$(VERBOSE)
 
@@ -106,6 +106,6 @@ CMakeFiles/common_library.dir/clean:
 .PHONY : CMakeFiles/common_library.dir/clean
 
 CMakeFiles/common_library.dir/depend:
-	cd /home/tmp/google_test/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/tmp/google_test /home/tmp/google_test /home/tmp/google_test/build /home/tmp/google_test/build /home/tmp/google_test/build/CMakeFiles/common_library.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/oss/google_test/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/oss/google_test /home/oss/google_test /home/oss/google_test/build /home/oss/google_test/build /home/oss/google_test/build/CMakeFiles/common_library.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/common_library.dir/depend
 
