@@ -91,3 +91,6 @@ int AVLTree<ValType>::get_height(Node<ValType> *cur_node) {
     return cur_node->get_height();
   }
 }
+
+template class AVLTree<int>;
+template class Node<int>;

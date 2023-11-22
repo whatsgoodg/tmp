@@ -31,6 +31,8 @@ template <typename ValType> class AVLTree {
 protected:
   // AVLTree constructor
   AVLTree();
+  // insert a node
+  Node<ValType> *insert_node(Node<ValType> *, ValType);
   // Single righr rotation
   Node<ValType> *single_right_rotation(Node<ValType> *);
   // check if AVL tree is balanced

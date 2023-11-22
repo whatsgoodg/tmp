@@ -23,10 +23,13 @@ SOFTWARE.
 
 #ifndef NODE_H
 #define NODE_H
+
+template <typename ValType> class AVLTree;
+
 // define Node
 template <typename ValType>
 class Node {
-  friend class AVLTree;
+  friend class AVLTree<ValType>;
   friend class Set;
 
 private:
