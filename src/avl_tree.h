@@ -39,6 +39,8 @@ protected:
   Node<ValType> *single_left_rotation(Node<ValType> *);
   // double right rotation
   Node<ValType> *double_right_rotation(Node<ValType> *);
+  // double left rotation
+  Node<ValType> *double_left_rotation(Node<ValType> *);
   // check if AVL tree is balanced
   bool is_balanced(Node<ValType> *, Node<ValType> *);
   // set height of a given node

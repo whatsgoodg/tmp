@@ -66,6 +66,16 @@ Node<ValType> *AVLTree<ValType>::double_right_rotation(Node<ValType> *cur_node) 
   return cur_node;
 }
 
+/* root- right - left */
+/* when cur_node's left child has bigger height than right child's height and
+ * newly inserted node has bigger key than left child's one */
+template <typename ValType>
+Node<ValType> *AVLTree<ValType>::double_left_rotation(Node<ValType> *cur_node) {
+  cur_node->right_ = single_right_rotation(cur_node->right_);
+  cur_node = single_left_rotation(cur_node);
+  return cur_node;
+}
+
 /* difference between heights have to be less than 2 to be balanced. */
 template <typename ValType>
 bool AVLTree<ValType>::is_balanced(Node<ValType> *child_1,
