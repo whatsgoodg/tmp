@@ -33,6 +33,8 @@ protected:
   AVLTree();
   // Single righr rotation
   Node<ValType> *single_right_rotation(Node<ValType> *);
+  // check if AVL tree is balanced
+  bool is_balanced(Node<ValType> *, Node<ValType> *);
   // set height of a given node
   void set_height(Node<ValType> *, int);
   // get height of a given node
