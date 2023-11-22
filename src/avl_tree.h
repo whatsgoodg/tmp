@@ -31,6 +31,8 @@ template <typename ValType> class AVLTree {
 protected:
   // AVLTree constructor
   AVLTree();
+  // Single righr rotation
+  Node<ValType> *single_right_rotation(Node<ValType> *);
   // set height of a given node
   void set_height(Node<ValType> *, int);
   // get height of a given node
