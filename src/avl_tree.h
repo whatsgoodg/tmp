@@ -27,13 +27,14 @@ SOFTWARE.
 #define AVLTREE_H
 
 // Define AVLTree
-template <typename ValType>
-class AVLTree {
+template <typename ValType> class AVLTree {
 protected:
   // AVLTree constructor
   AVLTree();
   // set height of a given node
   void set_height(Node<ValType> *, int);
+  // get height of a given node
+  int get_height(Node<ValType> *);
 
 protected:
   // members

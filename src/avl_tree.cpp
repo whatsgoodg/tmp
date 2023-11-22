@@ -24,8 +24,7 @@ SOFTWARE.
 #include "avl_tree.h"
 
 /* AVL Tree basic constructor*/
-template<typename ValType>
-AVLTree<ValType>::AVLTree() {
+template <typename ValType> AVLTree<ValType>::AVLTree() {
   root_ = NULL;
   num_of_nodes_ = 0;
 }
@@ -37,24 +36,37 @@ children argument
   2: compare right child to calling node's height
   1: compare left child to calling node's height
 */
-template<typename ValType>
+template <typename ValType>
 void AVLTree<ValType>::set_height(Node<ValType> *cur_node, int chidren) {
   switch (chidren) {
   case 3:
-    if (get_height(cur_node->left_) > get_height(cur_node->right_))
+    if (get_height(cur_node->left_) > get_height(cur_node->right_)) {
       cur_node->set_height(get_height(cur_node->left_) + 1);
-    else
+    } else {
       cur_node->set_height(get_height(cur_node->right_) + 1);
+    }
     break;
   case 2:
-    if (get_height(cur_node->right_) > get_height(cur_node))
+    if (get_height(cur_node->right_) > get_height(cur_node)) {
       cur_node->set_height(get_height(cur_node->right_) + 1);
-    else
+    } else {
       cur_node->set_height(get_height(cur_node) + 1);
+    }
   case 1:
-    if (get_height(cur_node->left_) > get_height(cur_node))
+    if (get_height(cur_node->left_) > get_height(cur_node)) {
       cur_node->set_height(get_height(cur_node->left_) + 1);
-    else
+    } else {
       cur_node->set_height(get_height(cur_node) + 1);
+    }
+  }
+}
+
+/* returns -1 if cur_node is NULL, else height member */
+template <typename ValType>
+int AVLTree<ValType>::get_height(Node<ValType> *cur_node) {
+  if (cur_node == NULL) {
+    return -1;
+  } else {
+    return cur_node->get_height();
   }
 }
