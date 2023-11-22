@@ -1,0 +1,4 @@
+/home/tmp/google_test/build/CMakeFiles/common_library.dir
+/home/tmp/google_test/build/CMakeFiles/unitTestRunner.dir
+/home/tmp/google_test/build/CMakeFiles/edit_cache.dir
+/home/tmp/google_test/build/CMakeFiles/rebuild_cache.dir
