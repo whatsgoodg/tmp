@@ -83,6 +83,21 @@ bool AVLTree<ValType>::is_balanced(Node<ValType> *child_1,
   return (get_height(child_1) - get_height(child_2) < 2);
 }
 
+/* find a node whose key matches a given key */
+template <typename ValType>
+Node<ValType> *AVLTree<ValType>::find_node(Node<ValType> *cur_node,
+                                           ValType key) {
+  if (cur_node == NULL) {
+    return NULL;
+  } else if (cur_node->key_ == key) {
+    return cur_node;
+  } else if (cur_node->key_ > key) {
+    return find_node(cur_node->left_, key);
+  } else if (cur_node->key_ < key) {
+    return find_node(cur_node->right_, key);
+  }
+}
+
 /*
 set_hegiht based on calling node's childs
 children argument
