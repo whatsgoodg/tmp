@@ -43,6 +43,8 @@ protected:
   Node<ValType> *double_left_rotation(Node<ValType> *);
   // check if AVL tree is balanced
   bool is_balanced(Node<ValType> *, Node<ValType> *);
+  // Find node matcheds a key
+  Node<ValType> *find_node(Node<ValType> *, ValType);
   // set height of a given node
   void set_height(Node<ValType> *, int);
   // get height of a given node
