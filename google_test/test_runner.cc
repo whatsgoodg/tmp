@@ -25,12 +25,11 @@ SOFTWARE.
 #include <gtest/gtest-param-test.h>
 #include <gtest/gtest.h>
 
-int arr[10] = {10, 5, 15, 3, 8, 12, 18, 2, 7, 20};
+int arr[13] = {50, 40, 30, 60, 70, 45, 25, 27, 55, 57, 51, 75, 67};
 class AVLTreeTest : public testing::Test {
 public:
   void SetUp() override {
-    cnt++;
-    for (int i = 0; i < cnt; i++) {
+    for (int i = 0; i < 13; i++) {
       avl.root_ = avl.insert_node(avl.root_, arr[i]);
     }
   }
@@ -48,23 +47,25 @@ class AVLTreeWithParam
 
 INSTANTIATE_TEST_SUITE_P(
     Default, AVLTreeWithParam,
-    ::testing::Values(std::make_pair(10, 10), std::make_pair(5, 5),
-                      std::make_pair(15, 15), std::make_pair(3, 3),
-                      std::make_pair(8, 8), std::make_pair(12, 12),
-                      std::make_pair(18, 18), std::make_pair(2, 2),
-                      std::make_pair(7, 7), std::make_pair(20, 20)));
+    ::testing::Values(std::make_pair(50, 3), std::make_pair(40, 2),
+                      std::make_pair(30, 0), std::make_pair(60, 2),
+                      std::make_pair(70, 1), std::make_pair(45, 0),
+                      std::make_pair(25, 0), std::make_pair(27, 1),
+                      std::make_pair(55, 1), std::make_pair(57, 0),
+                      std::make_pair(51, 0), std::make_pair(75, 0),
+                      std::make_pair(67, 0)));
 
-TEST_P(AVLTreeWithParam, find_node) {
+TEST_P(AVLTreeWithParam, get_height) {
   std::pair<int, int> param = GetParam();
   int key = param.first;
   int expected_key = param.second;
 
   ASSERT_NE(avl.root_, nullptr);
   Node<int> *node = avl.find_node(avl.root_, key);
-  EXPECT_EQ(expected_key, node->get_key())
-      << "when insert_node with a given key: " << key
-      << " returns a node, it has to have a root which has an expected key: "
-      << expected_key << '\n';
+  EXPECT_EQ(expected_key, node->get_height())
+      << "after insert nodes, a height of a given key: " << key
+      << " has to follow avl tree structure, expected key: " << expected_key
+      << '\n';
 }
 
 int main(int argc, char **argv) {

@@ -1,6 +1,6 @@
 CMakeFiles/common_library.dir/library_code.cc.o: \
- /home/tmp/google_test/library_code.cc /usr/include/stdc-predef.h \
- /home/tmp/google_test/library_code.h /usr/include/c++/7/iostream \
+ /home/oss/google_test/library_code.cc /usr/include/stdc-predef.h \
+ /home/oss/google_test/library_code.h /usr/include/c++/7/iostream \
  /usr/include/x86_64-linux-gnu/c++/7/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/7/bits/os_defines.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
