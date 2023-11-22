@@ -46,6 +46,7 @@ Node<ValType> *AVLTree<ValType>::insert_node(Node<ValType> *cur_node,
       if (cur_node->left_->key_ > key) {
         cur_node = single_right_rotation(cur_node);
       } else {
+	cur_node = double_right_rotation(cur_node);
       }
     }
   }
