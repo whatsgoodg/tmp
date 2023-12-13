@@ -155,54 +155,6 @@ Node<ValType> *AVLTree<ValType>::FindMinNodeOfSubtree(Node<ValType> *cur_node) {
 }
 
 template<typename ValType>
-Node<ValType> *AVLTree<ValType>::EraseNode(Node<ValType> *cur_node,
-										   ValType key) {
-
-  Node<ValType> *temp;
-  if (cur_node == NULL) {
-	return NULL;
-  } else if (key < cur_node->key_) {
-	cur_node->left_ = EraseNode(cur_node->left_, key);
-  } else if (key > cur_node->key_) {
-	cur_node->right_ = EraseNode(cur_node->right_, key);
-  } else if (cur_node->left_ != NULL && cur_node->right_ != NULL) {
-	temp = FindMinNodeOfSubtree(cur_node->right_);
-	cur_node->key_ = temp->key_;
-	cur_node->right_ = EraseNode(cur_node->right_, cur_node->key_);
-  } else {
-	temp = cur_node;
-	if (cur_node->left_ == NULL) {
-	  cur_node = cur_node->right_;
-	} else if (cur_node->right_ == NULL) {
-	  cur_node = cur_node->left_;
-	}
-	delete temp;
-  }
-
-  if (cur_node == NULL) {
-	return NULL;
-  }
-
-  set_height(cur_node, 3);
-
-  if (!is_balanced(cur_node->right_, cur_node->left_)) {
-	if (get_height(cur_node->right_->right_) - get_height(cur_node->right_->left_) == 1) {
-	  return single_left_rotation(cur_node);
-	} else {
-	  return double_left_rotation(cur_node);
-	}
-  } else if (!is_balanced(cur_node->left_, cur_node->right_)) {
-	if (get_height(cur_node->left_->left_) - get_height(cur_node->left_->right_) ==
-		1) {
-	  return single_right_rotation(cur_node);
-	} else {
-	  return double_right_rotation(cur_node);
-	}
-  }
-  return cur_node;
-}
-
-template<typename ValType>
 class AVLTree;
 template<typename ValType>
 class Node;
