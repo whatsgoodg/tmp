@@ -29,38 +29,38 @@ SOFTWARE.
     2. then, check if tree is balanced at each node this function traversed.
 */
 
-template <typename ValType>
+template<typename ValType>
 Node<ValType> *AVLTree<ValType>::insert_node(Node<ValType> *cur_node,
-                                             ValType key) {
+											 ValType key) {
 
   /* if meets leaf(NULL), make a new node */
   if (cur_node == NULL) {
-    cur_node = new Node<ValType>(key);
+	cur_node = new Node<ValType>(key);
   }
 
-  /* if new key is smaller than current node's key, become a left child */
+	/* if new key is smaller than current node's key, become a left child */
   else if (cur_node->key_ > key) {
-    cur_node->left_ = insert_node(cur_node->left_, key);
-    /* balancing */
-    if (!is_balanced(cur_node->left_, cur_node->right_)) {
-      if (cur_node->left_->key_ > key) {
-        cur_node = single_right_rotation(cur_node);
-      } else {
-	cur_node = double_right_rotation(cur_node);
-      }
-    }
+	cur_node->left_ = insert_node(cur_node->left_, key);
+	/* balancing */
+	if (!is_balanced(cur_node->left_, cur_node->right_)) {
+	  if (cur_node->left_->key_ > key) {
+		cur_node = single_right_rotation(cur_node);
+	  } else {
+		cur_node = double_right_rotation(cur_node);
+	  }
+	}
   }
 
-  /* if new key is bigger than current node's key, become a right child */
+	/* if new key is bigger than current node's key, become a right child */
   else {
-    cur_node->right_ = insert_node(cur_node->right_, key);
-    if (!is_balanced(cur_node->right_, cur_node->left_)) {
-      if (cur_node->right_->key_ < key) {
-	cur_node = single_left_rotation(cur_node);
-      } else {
-	cur_node = double_left_rotation(cur_node);
-      }
-    }
+	cur_node->right_ = insert_node(cur_node->right_, key);
+	if (!is_balanced(cur_node->right_, cur_node->left_)) {
+	  if (cur_node->right_->key_ < key) {
+		cur_node = single_left_rotation(cur_node);
+	  } else {
+		cur_node = double_left_rotation(cur_node);
+	  }
+	}
   }
 
   /* set height of current node */
@@ -68,5 +68,7 @@ Node<ValType> *AVLTree<ValType>::insert_node(Node<ValType> *cur_node,
   return cur_node;
 }
 
-template class AVLTree<int>;
-template class Node<int>;
+template
+class AVLTree<int>;
+template
+class Node<int>;

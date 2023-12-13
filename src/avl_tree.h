@@ -27,34 +27,35 @@ SOFTWARE.
 #define AVLTREE_H
 
 // Define AVLTree
-template <typename ValType> class AVLTree {
-protected:
-	// AVLTree constructor
-	AVLTree();
-	// insert a node
-	Node<ValType> *insert_node(Node<ValType> *, ValType);
-	// Single righr rotation
-	Node<ValType> *single_right_rotation(Node<ValType> *);
-	// single left rotation
-	Node<ValType> *single_left_rotation(Node<ValType> *);
-	// double right rotation
-	Node<ValType> *double_right_rotation(Node<ValType> *);
-	// double left rotation
-	Node<ValType> *double_left_rotation(Node<ValType> *);
-	// check if AVL tree is balanced
-	bool is_balanced(Node<ValType> *, Node<ValType> *);
-	// Find node matcheds a key
-	Node<ValType> *find_node(Node<ValType> *, ValType);
-	// set height of a given node
-	void set_height(Node<ValType> *, int);
-	// get height of a given node
-	int get_height(Node<ValType> *);
-	// find a node which has a smallest key in subtree whose root is a give node.
-	Node<ValType>* FindMinNodeOfSubtree(Node<ValType>*);
+template<typename ValType>
+class AVLTree {
+ protected:
+  // AVLTree constructor
+  AVLTree();
+  // insert a node
+  Node<ValType> *insert_node(Node<ValType> *, ValType);
+  // Single righr rotation
+  Node<ValType> *single_right_rotation(Node<ValType> *);
+  // single left rotation
+  Node<ValType> *single_left_rotation(Node<ValType> *);
+  // double right rotation
+  Node<ValType> *double_right_rotation(Node<ValType> *);
+  // double left rotation
+  Node<ValType> *double_left_rotation(Node<ValType> *);
+  // check if AVL tree is balanced
+  bool is_balanced(Node<ValType> *, Node<ValType> *);
+  // Find node matcheds a key
+  Node<ValType> *find_node(Node<ValType> *, ValType);
+  // set height of a given node
+  void set_height(Node<ValType> *, int);
+  // get height of a given node
+  int get_height(Node<ValType> *);
+  // find a node which has a smallest key in subtree whose root is a give node.
+  Node<ValType> *FindMinNodeOfSubtree(Node<ValType> *);
 
-protected:
-	// members
-	Node<ValType> *root_;
-	size_t num_of_nodes_;
+ protected:
+  // members
+  Node<ValType> *root_;
+  size_t num_of_nodes_;
 };
 #endif
