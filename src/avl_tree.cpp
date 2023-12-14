@@ -1,6 +1,6 @@
 /*
 File: avl_tree.cpp
-Copyright (c) 2023 김기정
+Copyright (c) 2023 김기정, 변해광
 
 MIT License
 
@@ -24,7 +24,8 @@ SOFTWARE.
 #include "avl_tree.h"
 
 /* AVL Tree basic constructor*/
-template <typename ValType> AVLTree<ValType>::AVLTree() {
+template<typename ValType>
+AVLTree<ValType>::AVLTree() {
   root_ = NULL;
   num_of_nodes_ = 0;
 }
@@ -32,7 +33,7 @@ template <typename ValType> AVLTree<ValType>::AVLTree() {
 /* root - left - left */
 /* when cur_node's left child has bigger height than right child's height and
    inserted node has smaller key than left child's one */
-template <typename ValType>
+template<typename ValType>
 Node<ValType> *
 AVLTree<ValType>::single_right_rotation(Node<ValType> *cur_node) {
   Node<ValType> *left_child = cur_node->left_;
@@ -45,8 +46,8 @@ AVLTree<ValType>::single_right_rotation(Node<ValType> *cur_node) {
 
 /* root - right - right */
 /* when cur_node's right child has bigger height than left child's height and
- * newly insterted node has bigger key than right child's one */\
-template <typename ValType>
+ * newly insterted node has bigger key than right child's one */
+template<typename ValType>
 Node<ValType> *AVLTree<ValType>::single_left_rotation(Node<ValType> *cur_node) {
   Node<ValType> *right_child = cur_node->right_;
   cur_node->right_ = right_child->left_;
@@ -59,8 +60,9 @@ Node<ValType> *AVLTree<ValType>::single_left_rotation(Node<ValType> *cur_node) {
 /* root - left - right */
 /* when cur_node's left child has bigger height than right child's height and
  * newly inserted node has bigger key than left child's one */
-template <typename ValType>
-Node<ValType> *AVLTree<ValType>::double_right_rotation(Node<ValType> *cur_node) {
+template<typename ValType>
+Node<ValType> *
+AVLTree<ValType>::double_right_rotation(Node<ValType> *cur_node) {
   cur_node->left_ = single_left_rotation(cur_node->left_);
   cur_node = single_right_rotation(cur_node);
   return cur_node;
@@ -69,7 +71,7 @@ Node<ValType> *AVLTree<ValType>::double_right_rotation(Node<ValType> *cur_node) 
 /* root- right - left */
 /* when cur_node's left child has bigger height than right child's height and
  * newly inserted node has bigger key than left child's one */
-template <typename ValType>
+template<typename ValType>
 Node<ValType> *AVLTree<ValType>::double_left_rotation(Node<ValType> *cur_node) {
   cur_node->right_ = single_right_rotation(cur_node->right_);
   cur_node = single_left_rotation(cur_node);
@@ -77,24 +79,24 @@ Node<ValType> *AVLTree<ValType>::double_left_rotation(Node<ValType> *cur_node) {
 }
 
 /* difference between heights have to be less than 2 to be balanced. */
-template <typename ValType>
+template<typename ValType>
 bool AVLTree<ValType>::is_balanced(Node<ValType> *child_1,
-                                   Node<ValType> *child_2) {
+								   Node<ValType> *child_2) {
   return (get_height(child_1) - get_height(child_2) < 2);
 }
 
 /* find a node whose key matches a given key */
-template <typename ValType>
+template<typename ValType>
 Node<ValType> *AVLTree<ValType>::find_node(Node<ValType> *cur_node,
-                                           ValType key) {
+										   ValType key) {
   if (cur_node == NULL) {
-    return NULL;
+	return NULL;
   } else if (cur_node->key_ == key) {
-    return cur_node;
+	return cur_node;
   } else if (cur_node->key_ > key) {
-    return find_node(cur_node->left_, key);
+	return find_node(cur_node->left_, key);
   } else if (cur_node->key_ < key) {
-    return find_node(cur_node->right_, key);
+	return find_node(cur_node->right_, key);
   }
 }
 
@@ -105,40 +107,54 @@ children argument
   2: compare right child to calling node's height
   1: compare left child to calling node's height
 */
-template <typename ValType>
+template<typename ValType>
 void AVLTree<ValType>::set_height(Node<ValType> *cur_node, int chidren) {
   switch (chidren) {
-  case 3:
-    if (get_height(cur_node->left_) > get_height(cur_node->right_)) {
-      cur_node->set_height(get_height(cur_node->left_) + 1);
-    } else {
-      cur_node->set_height(get_height(cur_node->right_) + 1);
-    }
-    break;
-  case 2:
-    if (get_height(cur_node->right_) > get_height(cur_node)) {
-      cur_node->set_height(get_height(cur_node->right_) + 1);
-    } else {
-      cur_node->set_height(get_height(cur_node) + 1);
-    }
-  case 1:
-    if (get_height(cur_node->left_) > get_height(cur_node)) {
-      cur_node->set_height(get_height(cur_node->left_) + 1);
-    } else {
-      cur_node->set_height(get_height(cur_node) + 1);
-    }
+	case 3:
+	  if (get_height(cur_node->left_) > get_height(cur_node->right_)) {
+		cur_node->set_height(get_height(cur_node->left_) + 1);
+	  } else {
+		cur_node->set_height(get_height(cur_node->right_) + 1);
+	  }
+	  break;
+	case 2:
+	  if (get_height(cur_node->right_) > get_height(cur_node)) {
+		cur_node->set_height(get_height(cur_node->right_) + 1);
+	  } else {
+		cur_node->set_height(get_height(cur_node) + 1);
+	  }
+	case 1:
+	  if (get_height(cur_node->left_) > get_height(cur_node)) {
+		cur_node->set_height(get_height(cur_node->left_) + 1);
+	  } else {
+		cur_node->set_height(get_height(cur_node) + 1);
+	  }
   }
 }
 
 /* returns -1 if cur_node is NULL, else height member */
-template <typename ValType>
+template<typename ValType>
 int AVLTree<ValType>::get_height(Node<ValType> *cur_node) {
   if (cur_node == NULL) {
-    return -1;
+	return -1;
   } else {
-    return cur_node->get_height();
+	return cur_node->get_height();
   }
 }
 
-template class AVLTree<int>;
-template class Node<int>;
+/* find a node which has a smallest key in subtree whose root is a give node. */
+template<typename ValType>
+Node<ValType> *AVLTree<ValType>::FindMinNodeOfSubtree(Node<ValType> *cur_node) {
+  if (cur_node == NULL) {
+	return NULL;
+  } else if (cur_node->left_ == NULL) {
+	return cur_node;
+  } else {
+	return FindMinNodeOfSubtree(cur_node->left_);
+  }
+}
+
+template<typename ValType>
+class AVLTree;
+template<typename ValType>
+class Node;

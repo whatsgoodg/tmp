@@ -27,8 +27,9 @@ SOFTWARE.
 #define AVLTREE_H
 
 // Define AVLTree
-template <typename ValType> class AVLTree {
-protected:
+template<typename ValType>
+class AVLTree {
+ protected:
   // AVLTree constructor
   AVLTree();
   // insert a node
@@ -49,8 +50,10 @@ protected:
   void set_height(Node<ValType> *, int);
   // get height of a given node
   int get_height(Node<ValType> *);
+  // find a node which has a smallest key in subtree whose root is a give node.
+  Node<ValType> *FindMinNodeOfSubtree(Node<ValType> *);
 
-protected:
+ protected:
   // members
   Node<ValType> *root_;
   size_t num_of_nodes_;
